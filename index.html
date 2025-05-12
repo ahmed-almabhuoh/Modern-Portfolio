@@ -129,16 +129,90 @@
         }
 
         .glass-card {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(30, 58, 138, 0.2);
             backdrop-filter: blur(10px);
             border-radius: 15px;
             padding: 20px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 32px rgba(107, 33, 168, 0.3);
             transition: transform 0.3s;
         }
 
         .glass-card:hover {
             transform: translateY(-10px);
+        }
+
+        .contact-title {
+            color: #ffffff;
+            text-shadow: 0 1px 2px rgba(107, 33, 168, 0.3);
+        }
+
+        .form-label {
+            color: #ffffff;
+            text-shadow: 0 1px 2px rgba(107, 33, 168, 0.3);
+            font-weight: 500;
+        }
+
+        .form-control {
+            background: #1e3a8a;
+            color: #ffffff;
+            border: 1px solid #6b21a8;
+            border-radius: 8px;
+            transition: border-color 0.3s;
+        }
+
+        .form-control:focus {
+            background: #1e3a8a;
+            color: #ffffff;
+            border-color: #6b21a8;
+            box-shadow: 0 0 5px rgba(107, 33, 168, 0.5);
+        }
+
+        .form-control::placeholder {
+            color: #cbd5e1;
+        }
+
+        .invalid-feedback {
+            color: #f9a8d4;
+        }
+
+        .btn-neon {
+            background: transparent;
+            border: 2px solid #6b21a8;
+            color: #6b21a8;
+            padding: 8px 20px;
+            border-radius: 25px;
+            transition: all 0.3s;
+        }
+
+        .btn-neon:hover {
+            background: #6b21a8;
+            color: #ffffff;
+            box-shadow: 0 0 10px rgba(107, 33, 168, 0.7);
+        }
+
+        @media (max-width: 768px) {
+            .glass-card {
+                padding: 15px;
+            }
+
+            .form-label {
+                font-size: 0.9rem;
+            }
+
+            .form-control {
+                font-size: 0.9rem;
+            }
+
+            .btn-neon {
+                padding: 6px 15px;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 992px) {
+            .glass-card {
+                max-width: 500px;
+                margin: 0 auto;
+            }
         }
 
         .skill-progress {
@@ -749,9 +823,9 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="section-padding" style="background: linear-gradient(135deg, #2dd4bf, #c4b5fd);">
+    <section id="contact" class="section-padding" style="background: linear-gradient(135deg, #1e3a8a, #6b21a8);">
         <div class="container">
-            <h2 class="text-center mb-5 animate-title">Get in Touch</h2>
+            <h2 class="text-center mb-5 animate-title contact-title">Get in Touch</h2>
             <div class="row justify-content-center">
                 <div class="col-md-6">
                     <div class="glass-card animate-section">
@@ -787,7 +861,7 @@
                 <a href="https://github.com/yourprofile" target="_blank"><i class="fab fa-github"></i></a>
             </div>
             <p>Contact: <a href="mailto:ahmed.almabhoh.21@gmail.com"
-                    class="text-decoration-none">ahmed.almabhoh.21@gmail.com</a> | +0972567077653</p>
+                    class="text-decoration-none">ahmed.almabhoh.21@gmail.com</a> | +972567077653</p>
             <p>Location: Palestine, Gaza Strip, North Gaza</p>
             <p>© 2025 Ahmed Almabhouh. All rights reserved.</p>
         </div>
