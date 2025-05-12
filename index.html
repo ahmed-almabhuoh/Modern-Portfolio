@@ -211,20 +211,69 @@
         }
 
         .experience-flow {
-            display: flex;
-            flex-wrap: wrap;
+            display: grid;
             gap: 20px;
-            justify-content: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .year-header {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            text-align: center;
+            background: linear-gradient(90deg, #d4a373, #f4d03f);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 20px 0 10px;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
         }
 
         .experience-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.95);
             border-radius: 15px;
             padding: 20px;
-            width: 300px;
-            text-align: center;
+            box-shadow: 0 4px 15px rgba(212, 163, 115, 0.2);
             transition: transform 0.3s;
+            text-align: center;
+        }
+
+        .experience-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .experience-card img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            filter: hue-rotate(90deg);
+            margin-bottom: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .experience-flow {
+                gap: 15px;
+                padding: 15px;
+            }
+
+            .experience-card {
+                max-width: 100%;
+            }
+
+            .year-header {
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 992px) {
+            .experience-flow {
+                max-width: 600px;
+            }
+
+            .experience-card {
+                max-width: 100%;
+            }
         }
 
         .experience-card:hover {
@@ -361,7 +410,7 @@
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="section-padding" style="background: linear-gradient(135deg, #2dd4bf, #a5b4fc);">
+    <section id="skills" class="section-padding" style="background: linear-gradient(135deg, #67e8f9, #c4b5fd);">
         <div class="container">
             <h2 class="text-center mb-5 animate-title">Technical Skills</h2>
             <div class="row">
@@ -412,42 +461,49 @@
     </section>
 
     <!-- Experience Section -->
-    <section id="experience" class="section-padding white-section">
-        <div class="container">
-            <h2 class="text-center mb-5 animate-title">Experience</h2>
-            <div class="experience-flow">
-                <div class="experience-card animate-experience">
-                    <img src="https://via.placeholder.com/100" alt="Orbit Technology Logo">
-                    <h5>Backend Developer | Requirements Analyst</h5>
-                    <p class="text-muted">Orbit Technology | 2022 - 2023</p>
-                    <p>Developed high-performance backend systems with smooth frontend and API integration. Optimized
-                        database queries, reducing load times by 25%. Led debugging efforts, enhancing reliability by
-                        20%.</p>
-                </div>
-                <div class="experience-card animate-experience">
-                    <img src="https://via.placeholder.com/100" alt="WSLA Tech Logo">
-                    <h5>Backend Developer | Requirements Analyst | Trainee</h5>
-                    <p class="text-muted">WSLA Tech | 2021 - 2022</p>
-                    <p>Developed a Cheque Management System, improving financial transaction efficiency by 15%.
-                        Optimized backend processes and created technical documentation.</p>
-                </div>
-                <div class="experience-card animate-experience">
-                    <img src="https://via.placeholder.com/100" alt="Freelancer Logo">
-                    <h5>Backend Developer</h5>
-                    <p class="text-muted">Freelancer | 2023</p>
-                    <p>Developed a Coupons System for e-commerce, supporting 200+ daily transactions. Optimized
-                        performance, increasing platform revenue by 10%.</p>
-                </div>
-                <div class="experience-card animate-experience">
-                    <img src="https://via.placeholder.com/100" alt="Sana'a University Logo">
-                    <h5>Software Development Project Supervisor</h5>
-                    <p class="text-muted">Sana'a University | 2023</p>
-                    <p>Led a student team in developing a software project, providing technical guidance and ensuring
-                        high-quality deliverables.</p>
-                </div>
-            </div>
+    <div class="experience-flow">
+        <div class="year-header">2025-Present</div>
+        <div class="experience-card animate-experience">
+            <img src="https://hero.delivery/cms/assets/media/custom/logos/hero-1.svg" alt="Hero">
+            <h5>Backend Developer</h5>
+            <p class="text-muted">Hero</p>
+            <p>Developed high-performance backend systems with smooth frontend and API integration. Optimized database
+                queries, reducing load times by 25%. Led debugging efforts, enhancing reliability by 20%.</p>
         </div>
-    </section>
+        <div class="year-header">2023</div>
+        <div class="experience-card animate-experience">
+            <img src="https://arabcoupon.com/public/frontend/images/topbar-logo.png" alt="Freelancer Logo">
+            <h5>Backend Developer</h5>
+            <p class="text-muted">Freelancer</p>
+            <p>Developed a Coupons System for e-commerce, supporting 200+ daily transactions. Optimized performance,
+                increasing platform revenue by 10%.</p>
+        </div>
+        <div class="experience-card animate-experience">
+            <img src="https://s.yimg.com/zb/imgv1/766795e6-f5f2-3dec-aa54-dda1c6c6d8a4/t_500x300"
+                alt="Sana'a University Logo">
+            <h5>Software Development Project Supervisor</h5>
+            <p class="text-muted">Sana'a University</p>
+            <p>Led a student team in developing a software project, providing technical guidance and ensuring
+                high-quality deliverables.</p>
+        </div>
+        <div class="year-header">2022-2023</div>
+        <div class="experience-card animate-experience">
+            <img src="https://ot.com.sa/static/media/logo.941546c5f88b3aa8c48e81db48226228.svg"
+                alt="Orbit Technology Logo">
+            <h5>Backend Developer | Requirements Analyst</h5>
+            <p class="text-muted">Orbit Technology</p>
+            <p>Developed high-performance backend systems with smooth frontend and API integration. Optimized database
+                queries, reducing load times by 25%. Led debugging efforts, enhancing reliability by 20%.</p>
+        </div>
+        <div class="year-header">2021-2022</div>
+        <div class="experience-card animate-experience">
+            <img src="https://client.wsla.ps/assets/img/logo_en.png" alt="WSLA Tech Logo">
+            <h5>Backend Developer | Requirements Analyst | Trainee</h5>
+            <p class="text-muted">WSLA Tech</p>
+            <p>Developed a Cheque Management System, improving financial transaction efficiency by 15%. Optimized
+                backend processes and created technical documentation.</p>
+        </div>
+    </div>
 
     <!-- Projects Section -->
     <section id="projects" class="section-padding" style="background: linear-gradient(135deg, #60a5fa, #c4b5fd);">
