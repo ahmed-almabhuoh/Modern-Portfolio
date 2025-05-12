@@ -156,26 +156,108 @@
             color: #1e293b;
         }
 
-        .project-card {
+        .project-accordion {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .accordion-item {
+            background: transparent;
             border: none;
-            border-radius: 15px;
+            margin-bottom: 15px;
+            border-radius: 10px;
             overflow: hidden;
-            transition: transform 0.3s, box-shadow 0.3s;
         }
 
-        .project-card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 20px rgba(212, 163, 115, 0.4);
+        .accordion-button {
+            background: linear-gradient(90deg, #f59e0b, #fcd34d);
+            color: #ffffff;
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 15px 20px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(245, 158, 11, 0.3);
+            transition: background 0.3s;
         }
 
-        .project-card img {
-            filter: brightness(80%);
-            transition: transform 0.3s, filter 0.3s;
+        .accordion-button:not(.collapsed) {
+            background: linear-gradient(90deg, #d97706, #facc15);
+            color: #ffffff;
         }
 
-        .project-card:hover img {
-            transform: scale(1.1);
-            filter: brightness(100%);
+        .accordion-button:focus {
+            box-shadow: 0 0 0 0.2rem rgba(245, 158, 11, 0.5);
+            border: none;
+        }
+
+        .accordion-button::after {
+            filter: brightness(0) invert(1);
+            /* White arrow */
+        }
+
+        .project-title {
+            flex-grow: 1;
+        }
+
+        .year-tag {
+            background: linear-gradient(90deg, #f59e0b, #fcd34d);
+            color: #ffffff;
+            font-size: 0.9rem;
+            font-weight: 600;
+            padding: 5px 10px;
+            border-radius: 12px;
+        }
+
+        .accordion-body {
+            background: #f8fafc;
+            padding: 20px;
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.2);
+        }
+
+        .btn-neon {
+            background: transparent;
+            border: 2px solid #f59e0b;
+            color: #f59e0b;
+            padding: 8px 20px;
+            border-radius: 25px;
+            transition: all 0.3s;
+        }
+
+        .btn-neon:hover {
+            background: #f59e0b;
+            color: #ffffff;
+            box-shadow: 0 0 10px rgba(245, 158, 11, 0.7);
+        }
+
+        @media (max-width: 768px) {
+            .project-accordion {
+                max-width: 100%;
+                padding: 0 10px;
+            }
+
+            .accordion-button {
+                font-size: 1rem;
+                padding: 12px 15px;
+            }
+
+            .year-tag {
+                font-size: 0.8rem;
+                padding: 4px 8px;
+            }
+
+            .accordion-body {
+                padding: 15px;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 992px) {
+            .project-accordion {
+                max-width: 600px;
+            }
         }
 
         .btn-neon {
@@ -506,44 +588,56 @@
     </div>
 
     <!-- Projects Section -->
-    <section id="projects" class="section-padding" style="background: linear-gradient(135deg, #60a5fa, #c4b5fd);">
+    <!-- <section id="projects" class="section-padding" style="background: linear-gradient(135deg, #134e4a, #4c1d95);">
         <div class="container">
-            <h2 class="text-center mb-5 animate-title">Projects</h2>
-            <div class="row">
-                <div class="col-md-4 mb-4 animate-project">
-                    <div class="card project-card glass-card">
-                        <img src="https://via.placeholder.com/300" class="card-img-top animate-image"
-                            alt="ORBIT Portal">
-                        <div class="card-body">
-                            <h5 class="card-title">ORBIT Portal</h5>
-                            <p class="card-text">Developed a scalable backend for a comprehensive portal with seamless
-                                API integration.</p>
+            <h2 class="text-center mb-5 animate-title text-white">Projects</h2>
+            <div class="accordion project-accordion" id="projectAccordion">
+                <div class="accordion-item animate-project">
+                    <h3 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#projectCollapse1" aria-expanded="true" aria-controls="projectCollapse1">
+                            <span class="project-title">ORBIT Portal</span>
+                            <span class="year-tag">2023</span>
+                        </button>
+                    </h3>
+                    <div id="projectCollapse1" class="accordion-collapse collapse show"
+                        data-bs-parent="#projectAccordion">
+                        <div class="accordion-body">
+                            <p>Developed a scalable backend for a comprehensive portal with seamless API integration.
+                            </p>
                             <button class="btn btn-neon" data-bs-toggle="modal" data-bs-target="#projectModal1">View
                                 Details</button>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 mb-4 animate-project">
-                    <div class="card project-card glass-card">
-                        <img src="https://via.placeholder.com/300" class="card-img-top animate-image"
-                            alt="CMS Repository">
-                        <div class="card-body">
-                            <h5 class="card-title">CMS Repository</h5>
-                            <p class="card-text">Built a content management system with robust backend logic and
-                                database optimization.</p>
+                <div class="accordion-item animate-project">
+                    <h3 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#projectCollapse2" aria-expanded="false" aria-controls="projectCollapse2">
+                            <span class="project-title">CMS Repository</span>
+                            <span class="year-tag">2023</span>
+                        </button>
+                    </h3>
+                    <div id="projectCollapse2" class="accordion-collapse collapse" data-bs-parent="#projectAccordion">
+                        <div class="accordion-body">
+                            <p>Built a content management system with robust backend logic and database optimization.
+                            </p>
                             <button class="btn btn-neon" data-bs-toggle="modal" data-bs-target="#projectModal2">View
                                 Details</button>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 mb-4 animate-project">
-                    <div class="card project-card glass-card">
-                        <img src="https://via.placeholder.com/300" class="card-img-top animate-image"
-                            alt="Arab Coupons">
-                        <div class="card-body">
-                            <h5 class="card-title">Arab Coupons</h5>
-                            <p class="card-text">Developed a coupons system for e-commerce, supporting 200+ daily
-                                transactions.</p>
+                <div class="accordion-item animate-project">
+                    <h3 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#projectCollapse3" aria-expanded="false" aria-controls="projectCollapse3">
+                            <span class="project-title">Arab Coupons</span>
+                            <span class="year-tag">2023</span>
+                        </button>
+                    </h3>
+                    <div id="projectCollapse3" class="accordion-collapse collapse" data-bs-parent="#projectAccordion">
+                        <div class="accordion-body">
+                            <p>Developed a coupons system for e-commerce, supporting 200+ daily transactions.</p>
                             <button class="btn btn-neon" data-bs-toggle="modal" data-bs-target="#projectModal3">View
                                 Details</button>
                         </div>
@@ -551,7 +645,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- Project Modals -->
     <div class="modal fade" id="projectModal1" tabindex="-1" aria-labelledby="projectModal1Label" aria-hidden="true">
@@ -619,7 +713,7 @@
                         <div class="testimonial-card animate-testimonial">
                             <p>"Ahmed delivered a highly efficient backend solution for our platform. His expertise in
                                 Laravel is unmatched!"</p>
-                            <h6>John Doe</h6>
+                            <h6>Rachid Boshmal</h6>
                             <p class="text-muted">CTO, Tech Innovate</p>
                         </div>
                     </div>
@@ -627,7 +721,7 @@
                         <div class="testimonial-card animate-testimonial">
                             <p>"Working with Ahmed was a game-changer. His attention to detail and optimization skills
                                 are top-notch."</p>
-                            <h6>Jane Smith</h6>
+                            <h6>Majed Al-Qahdany</h6>
                             <p class="text-muted">Product Manager, GrowEasy</p>
                         </div>
                     </div>
@@ -635,7 +729,7 @@
                         <div class="testimonial-card animate-testimonial">
                             <p>"An exceptional developer who consistently delivers scalable systems. Highly
                                 recommended!"</p>
-                            <h6>Mike Johnson</h6>
+                            <h6>Rakan Al-Harbi</h6>
                             <p class="text-muted">Lead Engineer, DataCore</p>
                         </div>
                     </div>
